@@ -2,16 +2,16 @@ package com.example.todo;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TodoActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static final int IS_SUCCESS = 0;
     private String[] mTodos;
@@ -46,7 +46,7 @@ public class TodoActivity extends AppCompatActivity {
 
         // set the user interface layout for this Activity
         // the layout file is defined in the project res/layout/activity_todo.xml file
-        setContentView(R.layout.activity_todo);
+        setContentView(R.layout.activity_main);
 
         // check for saved state due to changes such as rotation or back button
         // and restore any saved state such as the todo index
@@ -84,9 +84,9 @@ public class TodoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Note, the child class being called has a static method determining the parameter
                 // to be passed to it in the intent object
-                Intent intent = TodoDetailActivity.newIntent(TodoActivity.this, mTodoIndex);
+                Intent intent = TodoDetailActivity.newIntent(MainActivity.this, mTodoIndex);
 
-                 // second param requestCode identifies the call as there could be many "intents"
+                // second param requestCode identifies the call as there could be many "intents"
                 startActivityForResult(intent, IS_SUCCESS);
                 // The result will come back through
                 // onActivityResult(requestCode, resultCode, Intent) method
